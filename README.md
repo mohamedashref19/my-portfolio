@@ -2,10 +2,6 @@
 
 # Mohamed Ashraf — Developer Portfolio
 
-### _Logic first. Scale always._
-
-**A dark-mode, terminal-aesthetic portfolio built to show what lives under the hood.**
-
 <br>
 
 ![HTML5](https://img.shields.io/badge/HTML5-080b10?style=for-the-badge&logo=html5&logoColor=00e5a0)
