@@ -1247,7 +1247,43 @@
       }
 
       /* ─── RESPONSIVE ─────────────────────────────────────────── */
+
+      /* ── 4K / ultra-wide cap: prevent content from stretching absurdly wide */
+      section,
+      .nav,
+      footer {
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      /* sections are block-level so we need a wrapper approach —
+         keep the full-bleed background while capping the inner content */
+      section {
+        /* Reset the auto margins so full-bleed bg still works */
+        max-width: none;
+      }
+      .section-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* ── Tablet & small desktop (≤ 1024px) ────────────────────── */
+      @media (max-width: 1024px) {
+        /* Project cards: tighten the fixed-width thumbnail column */
+        .project-item {
+          grid-template-columns: 48px 180px 1fr auto;
+          gap: 24px;
+          padding: 24px 28px;
+        }
+        .project-thumb {
+          width: 180px;
+          height: 120px;
+        }
+      }
+
+      /* ── Tablet (≤ 900px) ──────────────────────────────────────── */
       @media (max-width: 900px) {
+        /* Nav: hide links, show hamburger */
         .nav-links {
           display: none;
         }
@@ -1255,86 +1291,241 @@
           display: flex;
         }
 
+        /* Sections: reduce vertical breathing room */
+        section {
+          padding: 80px clamp(16px, 5vw, 40px);
+        }
+
+        /* About: single column, tighter gap */
         .about-grid {
           grid-template-columns: 1fr;
           gap: 48px;
         }
+
+        /* Terminal: allow horizontal scroll so code lines never force
+           the page wider on constrained viewports */
+        .about-terminal {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .terminal-body {
+          min-width: 480px; /* keeps code readable; terminal scrolls, not the page */
+        }
+
+        /* Contact: single column */
         .contact-grid {
           grid-template-columns: 1fr;
           gap: 48px;
         }
 
+        /* Projects: collapse to 2-column (num + content-block),
+           thumbnail spans full width above, links span full width below */
         .project-item {
           grid-template-columns: 40px 1fr;
           grid-template-rows: auto auto auto;
-          gap: 20px;
-          padding: 28px 24px;
+          grid-template-areas:
+            "thumb  thumb"
+            "num    content"
+            "links  links";
+          gap: 0;
+          padding: 0 0 24px;
+          border-radius: 12px;
+        }
+        /* Kill the translate hover on touch — use a subtle glow instead */
+        .project-item:hover {
+          transform: none;
+          box-shadow:
+            0 0 0 1px var(--mint),
+            0 20px 60px rgba(0, 0, 0, 0.5);
         }
         .project-thumb {
-          grid-column: 1 / -1;
+          grid-area: thumb;
           width: 100%;
           height: 200px;
-          border-radius: 8px;
+          border-radius: 12px 12px 0 0;
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          border-bottom: 1px solid var(--border);
+          flex-shrink: unset;
+        }
+        .project-num {
+          grid-area: num;
+          font-size: 1.1rem;
+          padding: 20px 0 0 20px;
         }
         .project-content {
-          grid-column: 2;
+          grid-area: content;
+          padding: 20px 20px 0 12px;
         }
         .project-links {
-          grid-column: 1 / -1;
+          grid-area: links;
           flex-direction: row;
           flex-wrap: wrap;
-        }
-
-        section {
-          padding: 80px clamp(16px, 5vw, 40px);
+          padding: 16px 20px 0;
+          min-width: unset;
         }
       }
 
+      /* ── Mobile (≤ 600px) ──────────────────────────────────────── */
       @media (max-width: 600px) {
+        /* Hero: reduce letter-spacing so name fits narrow screens */
         .hero-name {
           letter-spacing: -1.5px;
+          /* clamp already handles font-size; just ensure it can wrap */
+          word-break: break-word;
         }
+        /* Ensure role pills wrap cleanly and gaps don't cause overflow */
+        .hero-role {
+          gap: 8px;
+        }
+        /* Bio text: full width on small screens */
+        .hero-bio {
+          max-width: 100%;
+        }
+        /* Action buttons: stack on very small screens */
+        .hero-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .btn-primary,
+        .btn-outline {
+          width: 100%;
+          justify-content: center;
+        }
+
+        /* About stats: keep 3-col but tighten padding so numbers breathe */
         .about-stats {
           grid-template-columns: repeat(3, 1fr);
         }
+        .stat-box {
+          padding: 18px 10px;
+        }
+        .stat-num {
+          font-size: 1.7rem;
+        }
+
+        /* Terminal: full scroll container, no min-width constraint */
+        .terminal-body {
+          min-width: 320px;
+          padding: 20px 16px 24px;
+          font-size: 0.75rem;
+        }
+
+        /* Skills: 2 columns */
         .skills-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-        .form-row {
-          grid-template-columns: 1fr;
-        }
 
+        /* Projects: fully single-column card */
         .project-item {
           grid-template-columns: 1fr;
+          grid-template-areas:
+            "thumb"
+            "num"
+            "content"
+            "links";
           padding: 0 0 20px;
           gap: 0;
           border-radius: 10px;
         }
-        /* on mobile the thumbnail becomes a full-width hero strip at the top */
         .project-thumb {
-          grid-column: 1;
-          width: 100%;
           height: 160px;
           border-radius: 10px 10px 0 0;
-          border-bottom: 1px solid var(--border);
-          border-left: none;
-          border-right: none;
-          border-top: none;
         }
         .project-num {
-          font-size: 1.1rem;
-          padding: 16px 20px 0;
+          padding: 16px 16px 0;
         }
         .project-content {
-          padding: 0 20px;
+          padding: 8px 16px 0;
+          /* prevent long unbroken strings (e.g. long URLs in tags) from overflowing */
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
         .project-links {
-          grid-column: 1;
-          flex-direction: row;
-          padding: 0 20px;
+          padding: 12px 16px 0;
+          gap: 8px;
+        }
+        .link-btn {
+          /* let buttons fill available width equally on tiny screens */
+          flex: 1 1 auto;
+          justify-content: center;
+          min-width: 0;
+        }
+        .project-desc {
+          max-width: 100%;
+        }
+
+        /* Contact form: stack name/email */
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .contact-form {
+          padding: 28px 20px;
+        }
+        /* Email address in contact info: allow wrapping */
+        .ci-value {
+          word-break: break-all;
+          font-size: 0.88rem;
+        }
+
+        /* Footer: center-stack on tiny screens */
+        footer {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 8px;
         }
       }
 
+      /* ── Very small phones (≤ 375px) ──────────────────────────── */
+      @media (max-width: 375px) {
+        /* Stats can get cramped at 3-col on 320px; drop to a 1×3 stack */
+        .about-stats {
+          grid-template-columns: 1fr;
+        }
+        .stat-box:first-child {
+          border-radius: 8px 8px 0 0;
+        }
+        .stat-box:last-child {
+          border-radius: 0 0 8px 8px;
+        }
+        /* Skills: single column so cards don't get too narrow */
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        /* Project thumbnail: slightly shorter to save vertical space */
+        .project-thumb {
+          height: 130px;
+        }
+      }
+
+      /* ── Ultra-wide / 4K (≥ 1600px) ───────────────────────────── */
+      @media (min-width: 1600px) {
+        /* Cap section padding so content doesn't hug extreme edges */
+        section {
+          padding: 140px clamp(80px, 8vw, 160px);
+        }
+        /* Project cards: bump thumbnail to match the generous layout */
+        .project-item {
+          grid-template-columns: 72px 260px 1fr auto;
+          padding: 36px 48px;
+        }
+        .project-thumb {
+          width: 260px;
+          height: 165px;
+        }
+        /* Clamp section-title max so it doesn't grow past ~4.2rem on 4K */
+        .section-title {
+          font-size: clamp(2rem, 3vw, 4.2rem);
+        }
+        /* Hero name: tighten the upper bound so it stays legible */
+        .hero-name {
+          font-size: clamp(3.2rem, 6vw, 8rem);
+        }
+      }
+
+      /* ── Reduced motion ────────────────────────────────────────── */
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
