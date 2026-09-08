@@ -738,7 +738,65 @@
           opacity: 0;
         }
       }
+      /* ─── SERVICES (NEW) ─────────────────────────────────────── */
+      #services {
+        background: var(--bg);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+      .service-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 32px;
+        transition: all 0.3s var(--ease);
+      }
+      .service-card:hover {
+        border-color: var(--mint);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      }
+      .service-icon {
+        color: var(--mint);
+        margin-bottom: 20px;
+      }
+      .service-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 12px;
+      }
+      .service-desc {
+        font-size: 0.95rem;
+        color: var(--text-2);
+        line-height: 1.6;
+      }
 
+      /* ─── PROJECT DESC UPDATES ───────────────────────────────── */
+      .project-desc strong {
+        color: var(--text);
+        display: block;
+        margin-top: 12px;
+        margin-bottom: 4px;
+      }
+      .project-desc ul {
+        list-style: none;
+        margin-bottom: 12px;
+      }
+      .project-desc li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 6px;
+      }
+      .project-desc li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--mint);
+      }
       /* ─── SKILLS ─────────────────────────────────────────────── */
       #skills {
         background: var(--bg-2);
@@ -1552,6 +1610,7 @@
         <ul class="nav-links" role="list">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact" class="nav-cta">Hire Me</a></li>
         </ul>
@@ -1566,6 +1625,7 @@
       <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1579,7 +1639,7 @@
       <div class="hero-inner">
         <div class="hero-eyebrow">
           <span class="dot" aria-hidden="true"></span>
-          Available for opportunities
+          Available for freelance work & opportunities
         </div>
 
         <h1 class="hero-name">
@@ -1593,7 +1653,7 @@
           <span class="pipe" aria-hidden="true">/</span>
           <span>MERN Stack</span>
           <span class="pipe" aria-hidden="true">/</span>
-          <span>CS @ Benha University</span>
+          <span>CS Graduate</span>
         </p>
 
         <p class="hero-bio">
@@ -1676,7 +1736,7 @@
           <p class="section-eyebrow">Who I Am</p>
           <h2 class="section-title">Logic first.<br />Scale always.</h2>
           <p>
-            I'm a Senior Computer Science student at Benha University and a
+            I'm a Computer Science Graduate from Benha University and a
             passionate Backend Engineer. My work lives in the backend layer —
             the part users never see but always feel.
           </p>
@@ -1834,6 +1894,123 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════ SERVICES ══════ -->
+    <section id="services">
+      <div class="fade-up">
+        <p class="section-eyebrow">What I Offer</p>
+        <h2 class="section-title" style="margin-bottom: 48px">
+          Freelance Services
+        </h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M20 16V7a2 2 0 00-2-2H6a2 2 0 00-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 01-.9 1.45H3.62a1 1 0 01-.9-1.45L4 16"
+              />
+            </svg>
+          </div>
+          <h3 class="service-title">Backend API Development</h3>
+          <p class="service-desc">
+            I build secure, scalable, and fully documented REST APIs using
+            Node.js, Express, and MongoDB.
+          </p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0110 0v4" />
+            </svg>
+          </div>
+          <h3 class="service-title">Authentication & Security</h3>
+          <p class="service-desc">
+            JWT authentication, role-based access control (RBAC), password
+            security, and protected routes.
+          </p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
+          </div>
+          <h3 class="service-title">Payment Integration</h3>
+          <p class="service-desc">
+            Stripe payment flows, checkout, webhook verification, and
+            booking/order transaction logic.
+          </p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Backend Bug Fixing</h3>
+          <p class="service-desc">
+            Fixing API bottlenecks, database queries, authentication issues, and
+            optimizing Node.js performance.
+          </p>
+        </div>
+        <!-- Service 05: Booking Systems -->
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <h3 class="service-title">Booking Systems</h3>
+          <p class="service-desc">
+            Building booking and reservation systems with availability logic,
+            payments, cancellations, and notifications.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════ PROJECTS ══════ -->
     <section id="projects">
       <div class="projects-header fade-up">
@@ -1863,12 +2040,19 @@
               <span class="project-badge">Payments</span>
             </div>
             <h3 class="project-name">Masar — AI Freelancing Platform</h3>
-            <p class="project-desc">
-              Full-stack freelancing platform with an AI requirements builder
-              that converts rough client ideas into structured project specs.
-              Stripe escrow ensures funds are held securely until milestone
-              delivery.
-            </p>
+            <div class="project-desc">
+              <strong>Problem & Solution:</strong> Clients struggle to convert
+              ideas into clear requirements. We built an AI-powered platform to
+              automate specs generation.
+              <strong>My Backend Role:</strong>
+              <ul>
+                <li>Designed REST API architecture (Node.js/Express).</li>
+                <li>Built MongoDB models and database logic.</li>
+                <li>
+                  Integrated Stripe escrow workflow for secure milestones.
+                </li>
+              </ul>
+            </div>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">Express</span>
@@ -1942,11 +2126,16 @@
               <span class="project-badge">Mobile</span>
             </div>
             <h3 class="project-name">Aqra — Smart Quran Companion</h3>
-            <p class="project-desc">
-              AI-powered Quran app with real-time voice recognition for
-              recitation correction. Live on Google Play. Built with a scalable
-              Node.js backend on AWS EC2 with zero-downtime deployment.
-            </p>
+            <div class="project-desc">
+              <strong>Challenge:</strong> Processing voice recognition
+              efficiently while managing user states across devices.
+              <strong>My Backend Role:</strong>
+              <ul>
+                <li>Engineered the backend on AWS EC2 with zero-downtime.</li>
+                <li>Optimized database queries for fast verse retrieval.</li>
+                <li>Integrated Firebase for real-time state management.</li>
+              </ul>
+            </div>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">MongoDB</span>
@@ -2019,11 +2208,20 @@
               <span class="project-badge">Payments</span>
             </div>
             <h3 class="project-name">Restaurant Platform</h3>
-            <p class="project-desc">
-              Complete restaurant booking system with Stripe payment
-              integration, admin dashboard for reservation management, and
-              dynamic transactional email notifications.
-            </p>
+            <div class="project-desc">
+              <strong>Overview:</strong> Complete booking system demanding
+              precise availability and payment logic.
+              <strong>What I Built:</strong>
+              <ul>
+                <li>Developed JWT authentication & Admin authorization.</li>
+                <li>
+                  Implemented reservation availability and validation logic.
+                </li>
+                <li>
+                  Added transactional email notifications (Pug templates).
+                </li>
+              </ul>
+            </div>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">Express</span>
@@ -2192,9 +2390,14 @@
               <span class="ci-value">Alexandria, Egypt</span>
             </div>
             <div class="contact-info-item">
-              <span class="ci-label">Phone</span>
+              <span class="ci-label">LinkedIn</span>
               <span class="ci-value">
-                <a href="tel:+201272317675">01272317675</a>
+                <a
+                  href="https://www.linkedin.com/in/mohamed-ashref-67baa4267/"
+                  target="_blank"
+                  rel="noopener"
+                  >Connect with me</a
+                >
               </span>
             </div>
             <div class="contact-info-item">
@@ -2269,7 +2472,7 @@
         <span class="footer-accent">Mohamed Ashraf</span> — Backend
         Engineer</span
       >
-      <span>Built with Node.js &amp; passion</span>
+      <span>Designed &amp; built by Mohamed Ashraf</span>
     </footer>
 
     <!-- ═══════════════════════════════════ SCRIPT ══════ -->
