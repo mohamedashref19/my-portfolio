@@ -4,6 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mohamed Ashraf — Backend Engineer</title>
+    <meta
+      name="description"
+      content="Backend engineer in Alexandria, Egypt. I build Node.js and MongoDB backends: booking systems, payment flows and mobile app APIs. Available for freelance work."
+    />
+    <meta name="author" content="Mohamed Ashraf" />
+    <link rel="canonical" href="https://mohamed-ashraf-backend.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mohamed Ashraf" />
+    <meta property="og:title" content="Mohamed Ashraf — Backend Engineer" />
+    <meta
+      property="og:description"
+      content="Backend engineer in Alexandria, Egypt. I build Node.js and MongoDB backends: booking systems, payment flows and mobile app APIs. Available for freelance work."
+    />
+    <meta
+      property="og:url"
+      content="https://mohamed-ashraf-backend.vercel.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://mohamed-ashraf-backend.vercel.app/images/avatar.jpg"
+    />
+    <meta property="og:image:alt" content="Mohamed Ashraf" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mohamed Ashraf — Backend Engineer" />
+    <meta
+      name="twitter:description"
+      content="Backend engineer in Alexandria, Egypt. I build Node.js and MongoDB backends: booking systems, payment flows and mobile app APIs. Available for freelance work."
+    />
+    <meta
+      name="twitter:image"
+      content="https://mohamed-ashraf-backend.vercel.app/images/avatar.jpg"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="./images/avatar.jpg" type="image/png" />
@@ -1055,6 +1087,18 @@
         max-width: 600px;
         margin-bottom: 18px;
       }
+      .project-impact {
+        max-width: 600px;
+        margin: -6px 0 18px;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        line-height: 1.65;
+        color: var(--text);
+      }
+      .project-impact::before {
+        content: "↳ ";
+        color: var(--mint);
+      }
       .project-tags {
         display: flex;
         flex-wrap: wrap;
@@ -1251,6 +1295,32 @@
         background: #00ffb3;
         transform: translateY(-2px);
         box-shadow: 0 12px 32px var(--mint-glow);
+      }
+
+      .form-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+      .form-status {
+        margin-top: 14px;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        line-height: 1.6;
+      }
+      .form-status:empty {
+        display: none;
+      }
+      .form-status.success {
+        color: var(--mint);
+      }
+      .form-status.error {
+        color: #ff7a7a;
+      }
+      .form-status a {
+        color: inherit;
+        text-decoration: underline;
       }
 
       /* ─── FOOTER ─────────────────────────────────────────────── */
@@ -1775,7 +1845,7 @@
           </p>
           <div class="about-stats">
             <div class="stat-box">
-              <div class="stat-num">6+</div>
+              <div class="stat-num">4</div>
               <div class="stat-label">Projects</div>
             </div>
             <div class="stat-box">
@@ -2080,6 +2150,10 @@
                 </li>
               </ul>
             </div>
+            <p class="project-impact">
+              Built by a team of 5. The backend, the database models and the
+              Stripe escrow flow were my part.
+            </p>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">Express</span>
@@ -2163,6 +2237,10 @@
                 <li>Integrated Firebase for real-time state management.</li>
               </ul>
             </div>
+            <p class="project-impact">
+              Live on Google Play. I also wrote the script that posts the app's
+              daily Quran reel to Instagram.
+            </p>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">MongoDB</span>
@@ -2254,6 +2332,10 @@
                 </li>
               </ul>
             </div>
+            <p class="project-impact">
+              Live on Google Play. A booking confirms itself when the deposit
+              SMS arrives, so nobody has to check payments by hand.
+            </p>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">Express</span>
@@ -2346,6 +2428,10 @@
                 </li>
               </ul>
             </div>
+            <p class="project-impact">
+              Built for a real client and running live. Every booking gets its
+              own QR ticket.
+            </p>
             <div class="project-tags">
               <span class="tag">Node.js</span>
               <span class="tag">Express</span>
@@ -2376,169 +2462,6 @@
             </a>
             <a
               href="https://cts-alex.vercel.app/"
-              target="_blank"
-              rel="noopener"
-              class="link-btn primary-link"
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <path
-                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-              Live Demo
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 05 -->
-        <article class="project-item fade-up">
-          <div class="project-num" aria-hidden="true">05</div>
-          <div class="project-thumb">
-            <img
-              src="./images/thumbs/01.jpg"
-              alt="Restaurant Platform screenshot"
-              loading="lazy"
-              onerror="
-                this.parentElement.style.background = 'var(--surface-2)';
-                this.style.display = 'none';
-              "
-            />
-          </div>
-          <div class="project-content">
-            <div class="project-meta">
-              <span class="project-badge">Full-stack</span>
-              <span class="project-badge">Payments</span>
-            </div>
-            <h3 class="project-name">Restaurant Platform</h3>
-            <div class="project-desc">
-              <strong>Overview:</strong> Complete booking system demanding
-              precise availability and payment logic.
-              <strong>What I Built:</strong>
-              <ul>
-                <li>Developed JWT authentication & Admin authorization.</li>
-                <li>
-                  Implemented reservation availability and validation logic.
-                </li>
-                <li>
-                  Added transactional email notifications (Pug templates).
-                </li>
-              </ul>
-            </div>
-            <div class="project-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">Stripe</span>
-              <span class="tag">Pug</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/mohamedashref19/restaurant"
-              target="_blank"
-              rel="noopener"
-              class="link-btn"
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-                />
-              </svg>
-              Code
-            </a>
-            <a
-              href="https://restaurant-muddy-shadow-3798.fly.dev/"
-              target="_blank"
-              rel="noopener"
-              class="link-btn primary-link"
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <path
-                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-              Live Demo
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 06 -->
-        <article class="project-item fade-up">
-          <div class="project-num" aria-hidden="true">06</div>
-          <div class="project-thumb">
-            <img
-              src="./images/thumbs/02.jpg"
-              alt="Natours Booking screenshot"
-              loading="lazy"
-              onerror="
-                this.parentElement.style.background = 'var(--surface-2)';
-                this.style.display = 'none';
-              "
-            />
-          </div>
-          <div class="project-content">
-            <div class="project-meta">
-              <span class="project-badge">REST API</span>
-              <span class="project-badge">Geospatial</span>
-            </div>
-            <h3 class="project-name">Natours Booking</h3>
-            <p class="project-desc">
-              Robust tour booking API handling geospatial queries, JWT
-              authentication, role-based access control, and server-side
-              rendered booking pages with Stripe checkout.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">Stripe</span>
-              <span class="tag">JWT</span>
-              <span class="tag">Mapbox</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/mohamedashref19/natours"
-              target="_blank"
-              rel="noopener"
-              class="link-btn"
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-                />
-              </svg>
-              Code
-            </a>
-            <a
-              href="https://natours.fly.dev/"
               target="_blank"
               rel="noopener"
               class="link-btn primary-link"
@@ -2604,7 +2527,7 @@
               <span class="ci-label">LinkedIn</span>
               <span class="ci-value">
                 <a
-                  href="https://www.linkedin.com/in/mohamed-ashref-67baa4267/"
+                  href="https://www.linkedin.com/in/mohamed-ashraf-dev/"
                   target="_blank"
                   rel="noopener"
                   >Connect with me</a
@@ -2636,9 +2559,18 @@
         <div class="fade-right">
           <form
             class="contact-form"
+            id="contact-form"
             method="post"
             action="https://formspree.io/f/mjknqogg"
           >
+            <input
+              type="text"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              style="display: none"
+            />
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name</label>
@@ -2671,6 +2603,12 @@
               ></textarea>
             </div>
             <button type="submit" class="form-submit">Send Message →</button>
+            <p
+              class="form-status"
+              id="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
           </form>
         </div>
       </div>
@@ -2750,6 +2688,40 @@
           burger.setAttribute("aria-expanded", "false");
         });
       });
+
+      // ── Contact form: send with fetch and show the result on the page
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        const status = document.getElementById("form-status");
+        const submitBtn = contactForm.querySelector(".form-submit");
+        contactForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const label = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+          status.className = "form-status";
+          status.textContent = "";
+          try {
+            const res = await fetch(contactForm.action, {
+              method: "POST",
+              body: new FormData(contactForm),
+              headers: { Accept: "application/json" },
+            });
+            if (!res.ok) throw new Error("Request failed: " + res.status);
+            contactForm.reset();
+            status.classList.add("success");
+            status.textContent =
+              "Message sent. Thanks for reaching out, I'll reply by email.";
+          } catch (err) {
+            status.classList.add("error");
+            status.innerHTML =
+              'Could not send the message. Please email me directly at <a href="mailto:mohamedashref2003195@gmail.com">mohamedashref2003195@gmail.com</a>.';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = label;
+          }
+        });
+      }
     </script>
   </body>
 </html>
